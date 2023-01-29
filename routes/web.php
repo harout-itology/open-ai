@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleGeneratorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/write/create', [ArticleGeneratorController::class, 'create'])->name('write.create');
+Route::post('/write', [ArticleGeneratorController::class, 'store'])->name('write.store');
